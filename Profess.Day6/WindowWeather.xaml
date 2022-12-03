@@ -1,0 +1,55 @@
+﻿<Window x:Class="Profess.Day6.WindowWeather"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Profess.Day6"
+        mc:Ignorable="d"
+        Title="WindowWeather" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1" Grid.Column="1"
+                    Grid.ColumnSpan="2">
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="Погода на {0}">
+                        <Binding Path="Now"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="Текущее время года: {0}">
+                        <Binding Path="Season"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock Text="{Binding Path=Condition}"/>
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="Температура: {0} C">
+                        <Binding Path="Temp"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="Чувствуется как {0} C">
+                        <Binding Path="FeelsLike"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
